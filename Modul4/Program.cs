@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace Modul4
         static void Main(string[] args)
         {
 
-            Task4_3_7();
+            Task4_3_12();
 
         }
 
@@ -50,5 +51,70 @@ namespace Modul4
             }
 
         }
+
+        public static void Task4_3_12()
+        {
+            Random rand = new Random();
+            rand.Next(0, 10000);
+             
+            var arr = new int[100];
+
+            for(int q = 0; q< arr.Length; q++)
+            {
+                arr[q] = rand.Next(0,1000);
+            }
+            //arr = SortVer1(arr);
+            arr = SortVer2(arr);
+            foreach (int a in arr)
+            {
+                Console.WriteLine(a + " ");
+            }
+        }
+
+        public static int[] SortVer1(int[] arr) 
+        {
+            int i = 0;
+            bool isSorted = true;
+            while (true)
+            {
+                if (i == arr.Length - 1)
+                {
+                    i = 0;
+                    if (isSorted)
+                        break;
+                    isSorted = true;
+                }
+                if (arr[i] > arr[i + 1])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    isSorted = false;
+                }
+                i++;
+            }
+            return arr;
+        }
+        public static int[] SortVer2(int[] arr)
+        {
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for(int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        int temp = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = temp;
+                    }
+
+                }
+            }
+
+
+            return arr;
+        }
+
     }
 }
