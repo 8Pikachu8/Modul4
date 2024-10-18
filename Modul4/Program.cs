@@ -12,7 +12,7 @@ namespace Modul4
         static void Main(string[] args)
         {
 
-            Arrays4_3.Task4_3_17();
+            TuplesM4_4.Createtupl();
         }
     }
 }
