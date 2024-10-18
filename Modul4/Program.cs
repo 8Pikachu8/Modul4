@@ -12,8 +12,7 @@ namespace Modul4
         static void Main(string[] args)
         {
 
-            Task4_3_12();
-
+            SumArr();
         }
 
         public static void Task4_3_7()
@@ -114,6 +113,25 @@ namespace Modul4
 
 
             return arr;
+        }
+
+        public static void SumArr()
+        {
+            Random rand = new Random();
+            int[] arr = new int[100];
+            int sum = 0;
+
+            for (int q = 0; q < arr.Length; q++)
+            {
+                arr[q] = rand.Next(0, 1000);
+            }
+
+
+            foreach (int a in arr)
+            {
+                sum += a;
+            }
+            Console.WriteLine(sum);
         }
 
     }
