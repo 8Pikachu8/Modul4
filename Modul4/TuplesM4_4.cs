@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Modul4
 {
-    internal class Program
+    internal class TuplesM4_4
     {
-        static void Main(string[] args)
+        
+        public static void Createtupl()
         {
-
-            Arrays4_3.Task4_3_17();
+            (string name, int age) tupl;
+            tupl = ("Ivan", 23);
+            
         }
     }
 }
