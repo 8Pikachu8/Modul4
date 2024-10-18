@@ -12,7 +12,7 @@ namespace Modul4
         static void Main(string[] args)
         {
 
-            SumArr();
+            Task4_3_17();
         }
 
         public static void Task4_3_7()
@@ -133,6 +133,104 @@ namespace Modul4
             }
             Console.WriteLine(sum);
         }
+        public static void Task4_3_14()
+        {
+            int[][] array = new int[3][];
+            array[0] = new int[2] { 1, 2 };
+            array[1] = new int[3] { 1, 2, 3 };
+            array[2] = new int[5] { 1, 2, 3, 4, 5 };
 
+            foreach (int[] arr in array)
+            {
+                foreach(int val in arr)
+                {
+                    Console.Write(val+" ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void Task4_3_15()
+        {
+
+            Random rand = new Random();
+            int[] arr = new int[100];
+            int countPositive = 0;
+
+            for (int q = 0; q < arr.Length; q++)
+            {
+                arr[q] = rand.Next(-1000, 1000);
+            }
+
+            countPositive= CountPositive(arr);
+            Console.WriteLine(countPositive);
+
+        }
+
+        public static int CountPositive(int[] arr)
+        {
+            int countPositive = 0;
+            foreach (int val in arr)
+            {
+                if (val > 0)
+                    countPositive++;
+            }
+            return countPositive;
+        }
+
+        public static int CountPositive(int[,] arr)
+        {
+            int countPositive = 0;
+            foreach (int val in arr)
+            {
+                if (val > 0)
+                    countPositive++;
+            }
+            return countPositive;
+        }
+
+        public static void Task4_3_16()
+        {
+            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+            int countPositive = 0;
+           
+            countPositive = CountPositive(arr);
+           
+
+            Console.WriteLine(countPositive);
+        }
+
+        public static void Task4_3_17()
+        {
+            int[,] arr = { { -5, 6, 9, 1, 2, -3 }, { -8, 8, 1, 1, 2, -3 } };
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    for (int q = 0; q < arr.GetLength(1); q++)
+                    {
+                        if (arr[i, j] < arr[i, q])
+                        {
+                            int temp = arr[i, j];
+                            arr[i, j] = arr[i, q];
+                            arr[i, q] = temp;
+                        }
+                    }
+
+                }
+            }
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    Console.Write(arr[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
+
+   
 }
